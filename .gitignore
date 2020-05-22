@@ -1,0 +1,8 @@
+node_modules/
+BACK/node_modules/
+BACK/tmp/
+tmp/
+BACK/uploads/
+BACK/.env
+.env
+BACK/migrations/sqitch.conf

@@ -1,0 +1,38 @@
+{
+  "name": "project-gestion-sav",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install_back": "cd BACK && npm install && cd ..",
+    "install_front": "cd FRONT && yarn",
+    "install": "npm run install_back && npm run install_front",
+    "migration": "cd BACK/migrations && sqitch deploy",
+    "start_back": "npx nodemon BACK/server.js",
+    "start_front": "cd FRONT && yarn start",
+    "watching": "npm run start_back & npm run start_front",
+    "dev": "npm run install && npm run watching",
+    "start": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Bifrost/project-gestion-sav.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Bifrost/project-gestion-sav/issues"
+  },
+  "homepage": "https://github.com/O-clock-Bifrost/project-gestion-sav#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
+    "react": "^16.13.1",
+    "react-color": "^2.18.1",
+    "react-dom": "^16.13.1",
+    "react-hook-form": "^5.6.1",
+    "react-print-components": "^1.0.4",
+    "semantic-ui-react": "^0.88.2"
+  }
+}

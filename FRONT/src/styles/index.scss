@@ -1,0 +1,826 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
+
+$white: #FFFFFF;
+$blue: #2c3e50;
+$grey: #ecf0f1;
+$orange: #E5A430;
+$green: #6BBC76;
+$bg: url('../assets/img/bg.jpg');
+
+// To desactivate the default class of Boostrap
+a {
+  color: $blue !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: $orange !important;
+}
+
+// Target the first div in the HTML
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  // background-color: red;
+  font-family: 'Montserrat', sans-serif;
+
+  .app {
+    width: 100vw;
+    min-height: 100vh;
+  }
+
+}
+
+// LOGIN MAIN
+.loginMain {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: $bg;
+  background-position: center center;
+  background-size: cover;
+
+  .loginSpace {
+    width: 100vw;
+    min-height: 100vh;
+    text-align: center;
+    padding: 15vh 20px;
+
+    .profil-logo {
+      width: 40vw;
+    }
+
+    .ui.header.profil-header {
+      color :white;
+    }
+
+    form {
+      .field {
+        margin-top: 30px;
+        label {
+          color: white;
+          font-size: 1.1em;
+        }
+      }
+
+      .ui.button.profil-button {
+        margin-top: 50px;
+        background-color: $orange;
+        border: 3px solid $orange;
+        color: $white;
+        font-weight: bold;
+        font-size: 1em;
+        text-transform: uppercase;
+        transition: .5s;
+      }
+
+      .ui.button.profil-button:hover {
+        background-color: $white;
+        color: $orange;
+      }
+    }  
+    .ui.form .field.field input {
+    width: 90%;
+    text-align: center;
+    border: none;
+    border: none;
+    background: none !important;
+    background-color: rgba(255,255,255,0.3) !important;
+    border-bottom: 3px solid $orange !important;
+    }
+  }
+}
+
+// HEADER 
+.header-area {
+  width: 100vw;
+  height: 5em;
+  background-color: $orange;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 99999999999999;
+  
+  &-image {
+    height: 4em;
+  }
+
+  .profilButton {
+    display: none;
+  }
+
+  .ui.form.search-form {
+    position: initial;
+    .header-area-searchbar {
+      background-color: rgba(255,255,255,0.5);
+      border: none;
+      border-bottom: 3px solid $blue;
+    }
+
+    .header-area-searchbar::placeholder {
+      color: $blue;
+      text-align: center;
+    }
+
+    .resultSearch{
+      display: none;
+    }
+
+    .resultSearch.active {
+      display: block;
+      position: absolute;
+      background-color: $white;
+      top: 5em;
+      left: 0;
+      width: 100%;
+      min-height: calc(100vh - 5em);
+      padding: 5px;
+
+      .resultSearch-ul {
+        width: 100%;
+        height: auto;
+        border: 2px solid $blue;
+        border-radius: 5px;
+        padding: 10px;
+
+        a {
+          font-weight: bold;
+        }
+        li {
+          list-style: none;
+        }
+      }
+    }
+  }
+  // Burger Button
+  .burgerButton {
+
+    i {
+      font-size: 2.5em;
+      margin-top: -.2em;
+      color: $white;
+    }
+
+    .menu.transition.visible {
+      position: fixed;
+      top: 5em;
+      left: 0;
+      width: 100vw;
+      min-height: calc(100vh-5em);
+      background-color: $blue;
+      border-radius: 0;
+
+      .item {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 1px solid $white;
+        padding: 1.3em 0 !important;
+      }
+
+      .item:last-child {
+        border: none;
+      }
+    }
+  }
+}
+
+// CLASSIC MENU
+.navbar {
+  display: none !important;
+}
+
+// CONTENT 
+.content {
+  width: 100vw;
+  min-height: 100vh;
+  position: absolute;
+  top: 5em;
+}
+
+// MAIN
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 5px;
+
+  .ui.header {
+    width: 100%;
+    text-align: center;
+    padding: .5em 0;
+    text-transform: uppercase;
+
+    a {
+      width: 40px;
+      height: 40px;
+      border: 3px solid $blue;
+      background-color: $white;
+      border-radius: 50%;
+      display: block;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+
+      i {
+        color: $blue;
+        margin: 2px 0 0 3px;
+        // display: none !important;
+      }
+    }
+  }
+
+  .table-head {
+    display: none;
+  }
+  // Dashboard 
+  .infinite-scroll-component__outerdiv {
+    .infinite-scroll-component {
+      .table-row {
+        border: 2px solid $orange;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 5px;
+
+        .number {
+          font-weight: bold;
+          text-transform: uppercase;
+          color: $blue;
+          text-align: center;
+        }
+
+        .ref-customer {
+          text-align: center;
+        }
+
+        .options {
+          text-align: right;
+
+          i {
+            font-size: 1.5em;
+            margin: 6px;
+            color: $blue;
+          }
+        }
+      }
+    }
+  }
+
+  // This is the main for the worker-list
+  .worker-list {
+    .ui.compact.celled.table {
+      border: none;
+      thead {
+        display: none;
+      }
+
+      tbody {
+        padding: 5px;
+        border: none;
+
+        .table-row {
+          border: 2px solid $orange;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          padding: 5px;
+
+          td:last-child {
+            text-align: right;
+
+            .icons-part {
+              i {
+                font-size: 1.5em;
+                margin: 6px;
+                color: $blue;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // Style to create a new client
+  .nav.nav-tabs {
+    display: none;
+  }
+
+  .tab-content,
+  .ui.form {
+    padding: 10px;
+
+    #selectCustomer {
+      border: 1px solid $blue;
+    }
+
+    .field input,
+    .field textarea {
+      border: none;
+      border-radius: 0;
+      border-radius: 5px;
+      border-bottom: 1px solid $blue;
+      background-color: $grey;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: $blue;
+    } 
+
+    .button-form,
+    .newcard-button-form,
+    .button-field-profil {
+      text-align: center;
+      margin-top: 30px;
+      padding-bottom: 30px;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  // Style to create a new card
+  .head-newformtab {
+
+    .ui.header {
+      i {
+        font-size: 1em;
+        margin-top: -10px;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .active.nav.nav-tabs {
+    display: flex;
+
+    a {
+      padding: 5px;
+      // border-color: $blue;
+    }
+
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    img {
+      width: 30%;
+      margin: 5px;
+    }
+  }
+
+  .dropzone {
+    width: calc(100vw -10px);
+    background-color: $blue;
+    color: $white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    position: fixed;
+    bottom: 15px;
+    left: 5px;
+  }
+
+  .ui.segment {
+    overflow: hidden;
+
+    .ui.header {
+      width: auto;
+    }
+
+    .icons-part {
+      width: 40px;
+      height: 40px;
+      border: 3px solid $blue;
+      background-color: $white;
+      border-radius: 50%;
+      display: block;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1.5em;
+      z-index: 1;
+      i {
+        color: $blue;
+        margin: 2px 0 0 6px;
+        // display: none !important;
+      }
+      // To manage the render of a card 
+      .fa.fa-print.client {
+        display: none;
+      }
+    }
+
+    .card-title {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .card-image {
+      svg {
+        display: none;
+      }
+    }
+
+    .ui.segment {
+      border: 2px solid $blue;
+    }
+
+    .archive-button {
+      margin-top: 20px;
+      background-color: $orange;
+      border: 3px solid $orange;
+      color: $white;
+      font-weight: bold;
+      font-size: 1em;
+      text-transform: uppercase;
+      transition: .5s;
+    }
+
+    .archive-button:hover {
+      background-color: $white;
+      color: $orange;
+    }
+  }
+  // TAG LIST
+  .ui.segment {
+    border: none !important;
+    .tag-list{
+      width: 100%;
+      display: flex;
+      
+      .tag-box {
+        width: max-content;
+        padding: 5px;
+        border-radius: 5px;
+        position: relative;
+        margin-right: 20px;
+
+        .tag-box-trash {
+          position: absolute;
+          background-color: $white;
+          color: $blue;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          border: 2px solid $blue;
+          top: -13px;
+          right: -8px;
+          i {
+            font-size: 1em;
+            font-style: normal;
+            margin: 0 0 0 7px;
+          }
+        }
+      }
+    }
+
+    .action-list {
+      .action-box {
+        border: 2px solid $blue;
+        border-radius: 5px;
+        margin-top: 5px;
+      } 
+      .edit-icon {
+        offset-position: right;
+      }
+      .blocked {
+        background-color: #bdc3c7 !important;
+        .ui.segment {
+          background-color: #bdc3c7!important;
+        }
+      }
+    }
+  }
+  .color-picker{
+    .sketch-picker {
+      margin: 20px auto;
+    }
+  }
+}
+
+.main > .ui.segment {
+  border: none;
+}
+
+// ACTIVITY 
+.activity {
+  display: none;
+}
+
+@media screen and (min-width : 768px) {
+
+  .content {
+    width: calc(100vw - 250px);
+    position: absolute;
+    top: 5em;
+    left: 250px;
+    display: flex;
+  }
+
+  .header-area {
+    .ui.form.search-form {
+      .header-area-searchbar {
+        width: 400px;
+      }
+
+      .resultSearch.active {
+        width: 30%;
+        left: 35.3%;
+      }
+    }
+
+    .burgerButton {
+      display: none;
+    }
+
+    .profilButton {
+      display: block;
+      padding-right: 20px;
+      i {
+        font-size: 2em;
+        color: $white;
+      }
+
+      .menu.transition.visible {
+        left: -113px;
+        background-color: $blue;
+        .item{
+          color: $white
+        }
+      }
+    }
+  }
+  
+  .navbar {
+    display: block !important;
+    position: fixed !important;
+    width: 250px;
+    height: calc(100vh - 5em);
+    top: 5em;
+    left: 0;
+    background-color: $blue;
+    padding: 0;
+
+    .ui.fluid.vertical.menu {
+      height: 100%;
+      width: 100%;
+      background: none;
+      
+      .item {
+        color : $white !important;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.14em;
+        cursor: pointer !important;
+
+        .menu {
+          display: none;
+        }
+
+        .menu.show {
+          display: block;
+          .item {
+            color: $white !important;
+            text-transform: initial;
+            font-weight: normal;
+            font-size: 1rem;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .ui.segment{
+
+    .btn-edit-action{
+      float: right;
+    }
+
+    .header-part{
+      position: relative;
+      .icons-part{
+        // display: block;
+        position: absolute;
+        border: none;
+        display: flex;
+
+        a{
+          border: none;
+        }
+
+        
+
+      }
+      .icons-part > i{
+        display: block !important;
+        font-size: 1.1em;
+        margin-top: 7px;
+        margin-left: 13px;
+      }
+    }
+
+
+    .card-image{
+      svg{
+        display: block !important;
+      }
+    }
+
+  }
+
+  .activity {
+    display: block;
+    width: 450px;
+
+    .ui.header {
+      margin-top: 3em;
+    }
+
+    .activity-content {
+      // font-size: 1.2em;
+      padding: 6px 5px;
+
+      .activity-header {
+        font-weight: bold;
+      }
+
+      .activity-description {
+        a {
+          font-style: italic;
+        }
+
+        span {
+          margin-left: 20px;
+          color: #7f8c8d;
+        }
+      }
+    }
+  }
+  .content .main {
+    .ui.header {
+      position: relative;
+      a {
+        position: absolute;
+        bottom: 5px;
+        width: 35px;
+        height: 35px;
+        transition: .5s;
+        i {
+          margin: 0px 0 0 2px;
+          font-size: .8em;
+        }
+      }
+
+      a:hover {
+        border-color: $orange;
+        i {
+          color: $orange;
+        }
+      }
+    }
+
+    .table-head {
+      display: block;
+      border: 2px solid $blue;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+      font-weight: bold;
+      background-color: $blue;
+      color: $white;
+      div {
+        width: 100%;
+      }
+
+      .mail {
+        min-width: 300px;
+      }
+    }
+
+    .infinite-scroll-component__outerdiv {
+      .infinite-scroll-component {
+        .table-row {
+          display: flex;
+          align-items: center;
+          margin: 0;
+          border:0;
+          border-bottom: 2px solid $orange;
+          border-left: 2px solid $orange;
+          border-right: 2px solid $orange;
+          border-radius: 0;
+          transition: .5s;
+          div {
+            width: 100%;
+            text-align: left;
+          }
+          .mail{
+            min-width: 300px;
+          }
+
+          .tags{
+            span{
+              padding: 5px;
+              border-radius: 5px;
+            }
+          }
+        }
+        
+        .table-row:hover{
+          background-color: #ecf0f1;
+        }
+      } 
+    }
+
+    .worker-list {
+      .ui.compact.celled.table {
+        thead {
+          display: contents;
+      
+          tr {
+            width: 100%;
+            th {
+              background-color: $blue;
+              color: $white;
+              font-weight: bold;
+            }
+          }
+        }
+
+        tbody {
+          border: none !important;
+          tr {
+            border: none !important;
+            td {
+              border: none !important;
+            }
+          }
+
+          tr:hover {
+            background-color: #ecf0f1;
+          }
+        }
+      }
+    }
+    
+    .ui.compact.celled.table {
+      thead {
+        display: contents;
+    
+        tr {
+          width: 100%;
+          th {
+            background-color: $blue;
+            color: $white;
+            font-weight: bold;
+          }
+        }
+      }
+
+      tbody {
+        border: none !important;
+        tr {
+          border: none !important;
+          td {
+            border: none !important;
+          }
+        }
+
+        tr:hover {
+          background-color: #ecf0f1;
+        }
+      }
+    }
+    .dropzone {
+      width: 100%;
+      position: initial;
+      cursor: pointer;
+      transition: .5s;
+    }
+
+    .dropzone:hover{
+      background-color: $orange;
+    }
+
+    .act{
+      border:3px solid black !important;
+    }
+
+  }
+
+  .loginMain{
+    .loginSpace{
+      .profil-logo{
+        width: 300px;
+      }
+
+    }
+  }
+
+  .loginMain .loginSpace .ui.form .field.field input{
+    width: 400px;
+  }
+
+}

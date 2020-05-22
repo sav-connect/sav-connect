@@ -1,0 +1,878 @@
+@import 'reset';
+@import 'vars';
+
+$white: #FFFFFF;
+$blue: #4774B8;
+$grey: #CCCCCC;
+$orange: #E5A430;
+$green: #6BBC76;
+
+$bg: url('../assets/img/bg.jpg');
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  height: auto;
+  a { color: black; } 
+  a:hover { color: $blue; }
+}
+
+.app{
+  width: 100vw;
+  min-height: 100vh;
+}
+/*Ici concerne le menu SAV par onglet Ne pas toucher please */
+.ui.list.client-tab {
+  margin: 1.5em;
+}
+.header.second-client-form-header {
+  margin-bottom: 1em;
+}
+.ui.labeled.button {
+  margin: 0.5em;
+}
+.ui.basic.label {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.ui.checkbox {
+  margin: 0.5em;
+}
+.label-tag {
+    padding: 0.4em;
+    border-radius: 0.5em;
+    margin: 0.5em;
+    width: 7em;
+    text-align: center;
+  }
+  .div-tags {
+    display: flex;
+    align-items: center;
+  }
+  .ui.header.options-header {
+    color:black;
+  }
+  #uncontrolled-tab-example-tabpane-options {
+    margin:1.5em;
+  }
+  .ui.form.tab-form {
+    margin:1.5em;
+  }
+  .head-newformtab {
+    display: flex;
+    justify-content: space-between;
+  }
+ 
+/************************************************************/
+
+/*Header Part*/
+.header-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: $blue;
+  color: $white;
+  position: fixed;
+  width: 100%;
+  height: 9%;
+  box-shadow: 1px 1px 20px 1px rgba(0,0,0,.3);
+  z-index: 999999;
+
+  &-image {
+    width: auto;
+    height: 55px;
+    padding-left: 0px;
+  }
+
+  .ui.icon.input {
+    width: 100%;
+    height: 40px;
+    // margin-top: 23px;
+    text-align: center !important;
+
+
+      i.search.icon{
+        color: $white;
+        font-size: .8em;
+      }
+    }
+
+  &-searchbar {
+    display: flex;
+    background-color: rgba(255,255,255,0.3) !important;
+    border-bottom: 3px solid $white !important;
+    color: $white;
+  }
+    .search-form {
+      display: flex;
+      align-items: center;
+      // 22 em pour la search bar
+      width: 22em;
+    }
+
+  i.user.icon {
+    font-size: 40px;
+    margin-top: 23px;
+    color: $orange;
+  }
+  
+  .burgerButton{
+    padding: 0 15px 0 15px ;
+  }
+  i.icon {
+    display: flex;
+    font-size: 2em;
+    }
+  
+  .ui.dropdown {
+    display: flex;
+  }
+  .ui.dropdown .menu {
+    left: -78px;
+
+  }
+
+  .ui.dropdown {
+      display: flex;
+  }
+  .ui.dropdown .menu {
+      left: -78px;
+  }
+}
+.resultSearch {
+  position: absolute;
+  top: 50px;
+  
+  &-ul {
+    background: white;
+    color: black;
+    width: 22em;
+    padding: 1em;
+    border-radius: 3px;
+    border-bottom: 2px solid $orange;
+  }
+
+  &-ul:hover {
+    background-color: #f5f6fa;
+  }
+  
+  &-name {
+    font-size: 0.9em;
+    color: grey;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .header-area {
+
+    &-image {
+      width: auto;
+      height: 80px;
+      padding-left: 0px;
+    }
+    .ui.icon.input {
+      width: 15%;
+    }
+    i.user.icon {
+      font-size: 2.2em;
+      margin: 1em 2em;
+      color: $orange;
+    }
+  }
+}
+
+/* Left Menu Part*/
+.navbar {
+  height: 100%;
+  position: fixed !important;
+  top:70px;
+  display: flex;
+  width: 200px;
+  // Ici menu ne prends pas toute la hauteur, fonctionne sans.
+  height: calc(120vh-100px);
+  background-color: #2f3640;
+  max-width: 20%;
+  text-align: center;
+
+  .ui.vertical.menu{
+    // border-right: 5px solid #0a3d62;
+    width: 100%;
+    padding-top: 20px;
+    background-color: #2f3640;
+    text-align: center;
+
+    .item {
+      padding-top: 25px;
+        height: 70px;
+        font-weight: bold;
+        color: white;
+        font-size: 1em;
+        // text-shadow: 0 3px 3px $grey;
+        // border-bottom: 1px solid $white;
+        flex-direction: row;
+        cursor: pointer;
+        height: auto;
+        min-height: 70px;
+        text-align: center;
+        padding: 20px 0 0 20px;
+
+        .menu {
+          display: none;
+          text-align: center;
+          padding: 0;
+          margin-top: 35px;
+          padding-top: 5px;
+
+          .item {
+            padding: 0;
+            font-size: 1rem;
+            min-height: 35px;
+          }
+
+          .item:hover{
+            background: none !important;
+          }
+
+        }
+        .menu.show {
+          display: block;
+        }
+      }
+
+      .item:hover{
+        background-color: #718093;
+      }
+  }
+}
+
+.app > .content {
+  width: calc(100vw - 250px);
+  position: absolute;
+  top: 100px;
+  left: 250px;
+  display: flex;
+  z-index: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    width: 100vw;
+    left: 0;
+
+    .main{
+      width: 100vw;
+      display: flex;
+
+      // .ui.segment .header-part{
+
+      // }
+    }
+    .activity {
+      display: none;
+    }
+  }
+  .card-image{
+    svg {
+      display: none;
+    }
+  }
+}
+
+/* Activity */
+.activity {
+  display: block;
+  flex-direction: column;
+  padding-top: 34px;
+  padding-left: 10px;
+  padding-right: 20px;
+  width: 22%;
+  position: fixed;
+  right: 0;
+
+  &-header {
+    font-weight: 600;
+  }
+  
+  &-content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px;
+  }
+
+  &-description {
+    color: $grey;
+    padding-left: 40px;
+  }
+
+  &-span {
+    margin-left: 10px;
+  }
+}
+
+
+
+/* Ligne 58 Main Part*/
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 60%;
+  padding: 20px;
+  z-index: 0;
+  max-width: 73%;
+
+  .table {
+    thead {
+      background-color: $blue;
+      color: white;
+    }
+  }
+
+  .ui.table thead th{
+    background-color: $blue;
+    color: white;
+  }
+
+  .ui.celled.table tr{
+    transition: .3s;
+  }
+
+  .ui.celled.table tr:hover{
+    background-color: rgba(71,116,184,0.3);
+  }
+
+  &-dashboard {
+    width: 100%;
+
+    &-ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 1px solid $grey;
+    }
+
+    &-tag {
+      background-color: $orange;
+      border-radius: 1em;
+      padding: 0.5em;
+    }
+  }
+
+  &-button {
+    background-color: #E5A430;
+    color: $white;
+    margin-top: 3.5em;
+    float: right;
+    border-radius: 7px 7px 7px 7px;
+    border-style: none;
+    width: 9em;
+    padding: 0.6em;
+    box-shadow: 0 3px 5px 1px $grey;
+    font-weight: 500;
+  }
+}
+// The trash to archive the cards
+.trash {
+  border: none;
+  cursor: pointer;
+}
+
+.trash:hover {
+  color: #1E70BF;
+}
+
+/*Login Page*/
+.loginMain {
+  background: $bg;
+  background-size: cover;
+  background-position: center center;
+  width: 100vmax;
+}
+.loginSpace {
+  width: 500px;
+  margin: 3em auto;
+  padding: 50px;
+}
+.profil-logo {
+  width: 80%;
+  margin-left: 3em;
+  margin-bottom: 3em;
+}
+.ui.header.profil-header {
+  margin-bottom: 1em;
+  color: $white;
+  text-align: center;
+}
+.ui.button.profil-button {
+  text-transform: uppercase;
+  background-color: $orange;
+  color: $white;
+  margin-left: 8.5em;
+  margin-top: 3em;
+  box-shadow: 0 3px 5px 1px $grey;
+}
+
+.loginSpace {
+  form {
+    .field {
+      label {
+        color: white !important;
+      }
+      .inputEmailLogin,
+      .inputPassword {
+        border: none;
+        background-color: rgba(255,255,255,0.3);
+        border-bottom: 2px solid $white;
+      }
+    }
+  }
+}
+
+// .main{
+//  .ui.button{
+//   // width: 90%;
+  
+// }
+// }
+  
+
+/*Profil Page*/
+.ui.button.submit-button {
+    background-color: #6BBC76;
+    color: white;
+}
+.ui.header {
+  color: #4774B8;
+}
+.button-field-profil {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5em;
+  width: 20em;
+}
+.ui.form.profil-form input {
+  width: 20em;
+}
+
+/* Client Page */
+.main-client {
+  height: 450px;
+  line-height: 50px;
+}
+h3 {
+  font-weight: bold;
+}
+span {
+  font-weight: normal;
+}
+.header-part {
+  display: flex;
+  justify-content: space-between;
+}
+.edit.icon.client {
+  color:#E5A430;
+  font-size: 1.5em;
+}
+.fa.fa-print.client {
+  color:#E5A430;
+  font-size: 1.7em;
+}
+
+/*Client, Worker, Archives & Repair List Pages*/
+.list-ul {
+  display:flex;
+  justify-content: space-between;
+  border-bottom: solid 0.01em grey;
+}
+.list-li {
+  margin-bottom: 1em;
+}
+
+.header.card-head {
+  margin-bottom: 1em;
+  font-size: 1.3em;
+}
+.ui.header.card-title {
+  color:black;
+}
+.card-picture {
+  width: 15em;
+  height: 14em;
+  // border: solid;
+}
+.card-image {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Card Form */
+
+
+
+
+// .ui.form .field {
+//   margin: 1.5em;
+// }
+// .ui.header.first-client-form-header {
+//   margin: 1.5em;
+// }
+// .ui.header.second-client-form-header {
+//   margin-left: 1.5em;
+// }
+// 
+
+// .newcard {
+//   display: flex;
+//   width: 100%;
+
+//   form {
+//    width: 100%;
+//   }
+
+//   &-title {
+//     display: flex;
+//     justify-content: center;
+//     color: #E5A430;
+//     text-shadow: 0 3px 3px #CCCCCC;
+//     font-size: 1.2em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   &-client {
+//     display: flex;
+//     flex-direction: column;
+//     margin-bottom: 1em;
+//   }
+
+//   &-button {
+//     margin-top: 1em;
+//     margin-left: 25%;
+//     background-color: #E5A430;
+//     color: white;
+//     border-radius: 7px 7px 7px 7px;
+//     border-style: none;
+//     width: 10em;
+//     padding: 0.6em;
+//     box-shadow: 0 3px 5px 1px #CCCCCC;
+//     font-weight: 500;
+
+//   }
+//   .ui.button {
+//     margin-top : 2em;
+//     margin-left: 2.3em;
+//   }
+// }
+
+
+/*404 PAGE*/
+.page404 {
+  text-align: center;
+  margin-top: 2em;
+  margin-left: 9em;
+}
+.page404-title {
+  font-size: 2.5em;
+  margin-bottom: 2em;
+}
+
+/* FORM */
+.ui.form {
+  .field {
+    input, textarea {
+      border: none;
+      background-color: #f5f6fa;
+      border-bottom: 2px solid #4774B8;
+    }
+  }
+}
+
+
+/*Modals*/
+.ui.modal.transition.visible.active {
+  width: 60%;
+  height: 70%;
+}
+
+.ui.modal>.content{
+  overflow: scroll;
+  height: 100%;
+}
+.modal-form {
+  margin: 4em;
+}
+.button-field-modal {
+  text-align: center;
+  margin-bottom: 2em;
+}
+.action-box {
+  padding: 10px;
+}
+
+.action-box.blocked {
+  .ui.segment {
+    background-color: $grey;
+  }
+}
+/*Spinners*/
+.spinner {
+  margin: auto;
+}
+
+/*Tags Modals*/
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tag-box {
+  // text-align: center;
+  font-weight: 500;
+  // width: 7em;
+  // height: 2em;
+  border-radius: .5em;
+  padding: .5em;
+  margin: .7em;
+
+  &-trash {
+    cursor: pointer;
+  }
+}
+
+
+
+
+.app {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// Boutton du form pour la fiche Client 
+.button-form {
+  display: flex;
+  justify-content: center;
+}
+
+// Color-picker 
+.color-picker {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.newcard-button-form {
+  display: flex;
+  justify-content: center;
+}
+
+.table-head{
+  width: 100%;
+  background-color: #2f3640;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  // justify-content: space-between;
+}
+
+.table-row {
+  width: 100%;
+  text-align: left;
+  min-height: 25px;
+  display: flex;
+  // justify-content: space-between;
+  border-left: 1px solid #b2bec3;
+  border-right: 1px solid #b2bec3;
+}
+
+.table-row:hover {
+  background-color: #b2bec3;
+}
+
+.table-head,
+.table-row {
+  border-bottom: 2px solid #4774B8;
+
+  div {
+    border-right: 1px solid #dfe6e9;
+  }
+
+  div:last-child {
+  border: none;
+  }
+
+  .number {
+    min-width: 135px;
+    max-width: 135px;
+    padding: 5px;
+
+    // background-color: #4774B8;
+  }
+
+  .ref-customer {
+    min-width: 150px;
+    max-width: 150px;
+    padding: 5px;
+    // background-color: #E5A430;
+  }
+
+  .firstname,
+  .lastname,
+  .phone,
+  .mesure,
+  .price {
+    min-width: 125px;
+    max-width: 125px;
+    padding: 5px;
+    // background-color: #E5A430;
+  }
+
+  .designation {
+    min-width: 370px;
+    max-width: 370px;
+    padding: 5px;
+    // background-color: #E5A430;
+  }
+
+  .mail {
+    min-width: 270px;
+    max-width: 270px;
+    padding: 5px;
+    // background-color: #E5A430;
+  }
+
+  .device-name {
+    min-width: 150px;
+    max-width: 150px;
+    padding: 5px;
+    // background-color: #6BBC76;
+  }
+
+
+
+  .device-brand {
+    min-width: 140px;
+    max-width: 140px;
+    padding: 5px;
+    // background-color: violet;
+  }
+
+  .date-enter {
+    min-width: 100px;
+    max-width: 100px;
+    padding: 5px;
+    // background-color: turquoise;
+  }
+
+  .tags {
+    // display: none;
+    min-width: 100px;
+    max-width: 100px;
+    padding: 5px;
+    // background-color: tomato;
+  }
+
+  .options {
+    min-width: 80px;
+    max-width: 80px;
+    padding: 5px;
+    // background-color: teal;
+  }
+
+  
+}
+
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+
+  img{
+    max-height: 200px;
+    width: auto;margin: 5px;
+    border-radius: 5px;
+    border: 2px solid #0a3d62;
+  }
+
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.act {
+  border: 3px solid black !important;
+}
+
+ 
+// ========== MEDIA QUERIES ==================// 
+
+@media only screen and (max-width : 768px) {
+  .navbar {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .header-area {
+    .ui.dropdown .menu {
+      left: -195px;
+      }
+  }
+}
+//Hiding ProfilButton on mobile version
+@media only screen and (max-width : 768px) {
+  /* Styles pour cette Media Queries */
+  .profilButton {
+    display: none;
+  }
+}
+
+//Showing BurgerButton on mobile version
+@media only screen and (min-width : 768px) {
+  /* Styles pour cette Media Queries */
+  .burgerButton {
+    display: none;
+  }
+}
+
+//Showing the navBar on desktop version
+@media only screen and (max-width : 768px) {
+  /* Styles pour cette Media Queries */
+  .navbar {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+//Hiding navBar on mobile version
+@media only screen and (max-width : 768px) {
+  /* Styles pour cette Media Queries */
+  .navbar {
+    display: none;
+  }
+}
+
+// Hiding Activity on mobile version
+@media only screen and (max-width: 768px) {
+   /* Styles pour cette Media Queries */
+  .activity {
+    display:none;
+  }
+}
+
+.dropzone {
+  width: 100%;
+  margin-top: 20px ;
+  padding: 10px;
+  background-color: #4774B8;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.dropzone:hover{
+  background-color: #6BBC76;
+}

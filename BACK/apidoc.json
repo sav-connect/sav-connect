@@ -1,0 +1,9 @@
+{
+    "name": "savConnect API",
+    "version": "1.0.0",
+    "description": "Documentation savConnect API",
+    "title": "savConnect API",
+    "template": {
+        "forceLanguage": "fr"
+    }
+  }

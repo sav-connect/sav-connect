@@ -1,0 +1,23 @@
+%syntax-version=1.0.0
+%project=savconnect
+
+tables 2020-04-28T07:28:55Z Jimmy Dupré <jimddb@gmail.com> # add tables
+order_number 2020-04-28T11:57:09Z Jimmy Dupré <jimddb@gmail.com> # add sequence order_number
+add_role 2020-04-28T12:28:10Z Jimmy Dupré <jimddb@gmail.com> # add default role
+addToken 2020-04-29T14:13:21Z Jimmy Dupré <jimddb@gmail.com> # add token in table user
+uniqueProduct 2020-04-30T06:45:52Z Jimmy Dupré <jimddb@gmail.com> # add constain on product table
+interval 2020-04-30T12:09:24Z Jimmy Dupré <jimddb@gmail.com> # modify type intervalDate
+adduser 2020-05-01T07:09:11Z Jimmy Dupré <jimddb@gmail.com> # ajout d'un user
+addColumnInCustomer 2020-05-01T13:21:46Z Jimmy Dupré <jimddb@gmail.com> # add columns in customer table
+fonctionActivity 2020-05-01T17:07:44Z Jimmy Dupré <jimddb@gmail.com> # add function activities
+newViewForActivity 2020-05-05T12:13:40Z Jimmy,,, <jimmy@Jimmy> # view for all activities
+updateViewActivity 2020-05-05T12:30:57Z Jimmy,,, <jimmy@Jimmy> # update view
+alterCustomer 2020-05-05T14:34:37Z Jimmy,,, <jimmy@Jimmy> # alter unique mail
+archiveTag 2020-05-08T08:49:46Z Jimmy,,, <jimmy@Jimmy> # add actif on table tag
+updateTables 2020-05-11T09:06:39Z Jimmy,,, <jimmy@Jimmy> # Add column on order_detail and update table action
+tablesPannes 2020-05-11T12:53:26Z Jimmy,,, <jimmy@Jimmy> # new tables for préconfig pannes
+newViewforSav 2020-05-12T09:01:18Z Jimmy,,, <jimmy@Jimmy> # New view for sav and tags on sav
+newcolumnOntable 2020-05-13T11:23:17Z Jimmy,,, <jimmy@Jimmy> # ci de saisir une note pour votre changement. Les lignes commençant par '#' seront ignorées, et un message vide annulera le ajouter.
+newColumnDiag 2020-05-13T14:45:34Z Jimmy,,, <jimmy@Jimmy> # new column diag in order_repair
+gallery 2020-05-13T14:58:07Z Jimmy,,, <jimmy@Jimmy> # gallery for order_repair
+updateTable 2020-05-21T08:13:55Z Jimmy,,, <jimmy@Jimmy> # update table tags
