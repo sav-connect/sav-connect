@@ -208,6 +208,16 @@ module.exports = productController = {
             console.log(error);
             return res.send(false);
         }
+    },
+
+
+    productBySav : async (req, res) => {
+        try{
+            
+        }catch(error) {
+            console.log(error);
+            return res.send(false);
+        }
     }
 
 };

@@ -83,7 +83,6 @@ class Activity extends Component {
     const activities = this.state.activities;
     return activities.map((activity, i) => {
       const date = new Date(activity.created_at);
-      console.log(activity);
       if (activity.type === 'tag') {
         const color = React.createElement('span', {
           style: 

@@ -3,6 +3,7 @@ import { Header, Button, Form } from 'semantic-ui-react';
 import { useParams } from 'react-router-dom';
 import { useDispatch} from 'react-redux';
 import { useHistory } from 'react-router';
+import { useAlert } from 'react-alert';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import axios from 'axios';
@@ -25,6 +26,9 @@ import { seeArchives } from 'src/store/actions';
 const NewFormTab = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const alert = useAlert();
+
     //Get Client Informations:
     let order_number;
 
@@ -108,7 +112,7 @@ const NewFormTab = () => {
                     <GalleryForm />
                 </Tab>
                 <Tab eventKey="devis" title="Devis" >
-                    <DevisForm />
+                    <DevisForm order_number={order_number} alert={alert} />
                 </Tab>
                 <Tab eventKey="options" title="Options" >
                     <OptionsForm />

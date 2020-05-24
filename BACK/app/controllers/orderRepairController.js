@@ -114,7 +114,6 @@ module.exports = orderRepairController = {
             !order_number ? res.send({"error": "Il manque un paramètre pour éxécuter votre demande"}) :  '' ;
             let {devis_is_accepted, date_devis, amount_devis, amount_diag, recall_devis, order_number_id } = req.body;
             !devis_is_accepted ? devis_is_accepted='' : '';
-            date_devis ? date_devis += 'Z' : null;
             !date_devis ? date_devis=null : '';
             !amount_devis ? amount_devis=null : '';
             !amount_diag ? amount_diag=null : '';
@@ -132,7 +131,9 @@ module.exports = orderRepairController = {
                 order_number
             });
 
-            !result ? res.send({"error": "Une erreur s'est produite lors de la modification."}): ''; 
+            if(!result){
+                return res.send({"error": "Une erreur s'est produite lors de la modification."});
+            }
 
             let headerAuth = req.headers.authorization;
             // On récupère l'id stocké dans le code
@@ -143,7 +144,7 @@ module.exports = orderRepairController = {
 
         } catch (error) {
             console.trace(error);
-            return false;
+            return res.send(false);
         }
     },
 
