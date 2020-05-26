@@ -103,7 +103,7 @@ const NewFormTab = () => {
                     <ClientTab/>
                 </Tab>
                 <Tab eventKey="appareil" title="Appareil">
-                    <DeviceForm />
+                    <DeviceForm order_number={order_number} alert={alert} />
                 </Tab>
                 <Tab eventKey="intervention" title="Intervention">
                     <InterventionForm />
