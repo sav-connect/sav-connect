@@ -128,7 +128,7 @@ const EditArticleForm = (props) => {
              color='green'
              type='submit'
              >Valider</Button>
-             <Link to={`/articlelist/`}>
+             <Link to={`/articlelist/1`}>
               <Button type='submit'>Annuler</Button>
              </Link>
           </div>
