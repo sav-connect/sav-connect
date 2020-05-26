@@ -10,6 +10,7 @@ const OrderRepair = require('../models/OrderRepair');
 // CUSTOMER MODEL
 const Customer = require('../models/Customer');
 const Action = require('../models/Action');
+const Product = require('../models/Product');
 
 
 module.exports = orderRepairController = {
@@ -100,7 +101,19 @@ module.exports = orderRepairController = {
             !order_number ? res.send({"error": "Il manque un paramètre pour éxécuter votre demande"}) :  '' ;
 
             const result = await OrderRepair.getStepFive(order_number);
-            !result ? res.send({"error": "Pas de résultat"}) : res.send(result);
+
+            const id = result[0].id;
+            
+            const products = await Product.productBySav(id);
+            if(products){
+                result[0].products = products;
+            }
+            console.log(result);
+            if(!result){
+                return res.send({"error": "Pas de résultat"});
+            }
+            
+            return res.send(result);
 
         } catch (error) {
             console.log(error);
@@ -500,9 +513,9 @@ module.exports = orderRepairController = {
                 if(isOk) {
                     // Send data for the new order_repair
                     result.customer = customer;
-                    // console.log();
+
                     // const resultAction = await Action.addActionOnSav(2,result.customer.id,userId);
-                    // console.log(resultAction);
+
                     res.send(result);
                 }else{
                     res.status(403).send({"error": "Une erreur s'est produite lors de la sauvegarde du OrderRepair."});

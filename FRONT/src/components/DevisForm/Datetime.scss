@@ -2,6 +2,14 @@
  * https://github.com/YouCanBookMe/react-datetime
  */
 
+
+$white: #FFFFFF;
+$blue: #2c3e50;
+$grey: #ecf0f1;
+$orange: #E5A430;
+$green: #6BBC76;
+
+
  .rdt {
     position: relative;
   }
@@ -219,4 +227,92 @@
 
   .modal-dialog{
       margin-top: 300px;
+  }
+
+  .product-list {
+    width: 100%;
+  
+    thead {
+      tr {
+        border-bottom: 2px solid $blue;
+        background-color: $blue;
+
+        td{
+          padding: 5px;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: $white;
+        }
+      }
+    }
+
+    tbody{
+      tr{
+        border-bottom: 2px solid $orange;
+
+        td{
+          padding: 5px;
+
+          span {
+            color: $blue;
+            font-weight: bold;
+            font-size: 1.2em;
+            cursor: pointer;
+          }
+
+          .delete-product {
+           color: red;
+           margin-left: 30px;
+           font-weight: normal; 
+          }
+
+        }
+      }
+
+      tr:hover{
+        background-color: $grey;
+      }
+    }
+
+  }
+
+  .add-product {
+   margin: 20px;
+   background: $blue;
+   color: $white;
+  }
+
+  .add-product:hover{
+    background-color: $orange;
+  }
+
+  .modal-dialog{
+    .form-group {
+      text-align: center;
+      label {
+        color: $blue;
+        font-weight: bold;
+        margin: 0 10px;
+      }
+
+      input[type=text] {
+        border: 0;
+        border-bottom: 2px solid $blue;
+        background-color: $grey;
+      }
+
+      select{
+        border: 2px solid $blue;
+        padding: 3px;
+        border-radius: 5px;
+      }
+
+      button{
+        background-color: $blue;
+        color: $white;
+        border: 0;
+        padding: 5px;
+      }
+
+    }
   }

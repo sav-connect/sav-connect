@@ -28,7 +28,8 @@ class DevisForm extends Component {
       devis_is_accepted: '',
       id: null,
       order_number: this.props.order_number,
-      recall_devis: null
+      recall_devis: null,
+      products: []
     },
     isAccepted : [
       {
@@ -69,6 +70,7 @@ class DevisForm extends Component {
       },
     ],
     alert: this.props.alert,
+    isDeleteProduct : false,
     modalShow: false,
     search : [],
     product : '',
@@ -87,6 +89,7 @@ class DevisForm extends Component {
           },        
         })
         .then((res) => {
+          console.log(res.data[0]);
           this.state.devis = res.data[0];
         })
         .catch((err) => {
@@ -239,8 +242,12 @@ class DevisForm extends Component {
       },
     })
     .then((response) => {
-        if(response.data === true){
-          this.state.alert.success('Ajouté avec succès')
+        if(response.data){
+          this.state.alert.success('Ajouté avec succès');
+          const state = this.state;
+          state.devis.products.push(response.data[0]);
+          this.setState(state);
+          this.totalAmountDevis();
         }else{
           this.state.alert.error('Une erreur s\est produite.')
         }
@@ -258,9 +265,78 @@ class DevisForm extends Component {
     this.setState(state);
   }
 
+  showProductsInList = () => {
+    const products = this.state.devis.products;
+    return products.map((product, key) => {
+      return(
+        <tr key={key}>
+          <td>{product.ref}</td>
+          <td>{product.name}</td>
+          <td>{product.price}</td>
+          <td><span  onClick={e => { this.removeQtyOnProduct(e, key) }}> - </span> {product.qty} <span onClick={e => { this.addQtyOnProduct(e, key) }}> + </span> <span className="delete-product"  onClick={e => { this.deleteProduct(e, key) }}> X </span></td>
+          <td>{product.price * product.qty}</td>
+        </tr>
+        );
+    })
+  }
+
+  addQtyOnProduct = (event, index) => {
+    const state = this.state;
+    state.devis.products[index].qty = state.devis.products[index].qty + 1;
+    this.setState(state);
+    this.totalAmountDevis();
+  }
+
+  removeQtyOnProduct = (event, index) => {
+    const state = this.state;
+    if(state.devis.products[index].qty !== 0){
+      state.devis.products[index].qty = state.devis.products[index].qty - 1;
+    }
+    this.setState(state);
+    this.totalAmountDevis();
+  }
+
+  deleteProduct = (event, index) => {
+      const state = this.state;
+      const id = state.devis.products[index].idrel;
+
+      axios.get(`http://localhost:3000/api/product/sav/delete/${id}`, {
+      withCredentials: true,
+      headers: {
+        Authorization: sessionStorage.token,
+      },
+      })
+      .then((response) => {
+          if(response.data === true){
+            this.state.alert.success('Article supprimé');
+            const state = this.state;
+            delete state.devis.products[index];
+            this.setState(state);
+            this.totalAmountDevis();
+          }else{
+            this.state.alert.error('Une erreur s\est produite.')
+          }
+      }) 
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }
+
+
+  totalAmountDevis = () => {
+    const state = this.state;
+    let amount = 0;
+    state.devis.products.map(product => {
+      console.log(product);
+      amount += product.price * product.qty;
+    });
+    state.devis.amount_devis = amount;
+    this.setState(state);
+  } 
+
   render() {
     
-    console.log(this.state);
     const date = new Date(this.state.devis.date_devis);
     
     return (
@@ -275,18 +351,18 @@ class DevisForm extends Component {
         <Modal.Body>
           <form onSubmit={this.handleSubmitAddProduct}>
             <div className="form-group">
-              <label for="search-product">Recherche : </label>
+              <label>Recherche : </label>
               <input type="text" id="search-product" onChange={this.handleChangeProducts} placeholder="Rechercher votre produit."/>
             </div>
             <div className="form-group">
-              <label for="list-products">Liste des produits</label>
+              <label>Liste des produits</label>
               <select id="list-products" onChange={this.handleChangeProduct}>
                 <option>Sélectionnez votre produit après votre recheche.</option>
                 {this.showProducts()}
               </select>
             </div>
             <div className="form-group">
-              <button type="submit">Ajotuer le produit</button>
+              <button type="submit">Ajouter le produit</button>
             </div>
           </form>
         </Modal.Body>
@@ -296,11 +372,22 @@ class DevisForm extends Component {
               </Button>
             </Modal.Footer>
           </Modal>
-          <div className="product-list">
+          <table className="product-list">
+            <thead>
+            <tr>
+              <td>Ref</td>
+              <td>Désignation</td>
+              <td>Prix / Unitaire</td>
+              <td>Quantité</td>
+              <td>Montant</td>
+            </tr>
+            </thead>
+            <tbody>
+              {this.showProductsInList()}
+            </tbody>
+          </table>
 
-          </div>
-
-          <span className="btn btn-primary" onClick={this.handleShow}>Ajouter un produit au devis</span>
+          <span className="btn add-product" onClick={this.handleShow}>Ajouter un produit au devis</span>
           <Form onSubmit={this.handleSubmit} >
             <Form.Field>
             <label>Etat du devis</label>
