@@ -48,5 +48,5 @@ npm start
 | | | | |
 |---|---|---|---|
 |<img src="https://github.com/jimmydupre.png" alt="jimmy dupre" width="200">|<img src="https://github.com/Stellavilar.png" alt="Stellavillar" width="200">|<img src="https://github.com/Alexandre-st.png" alt="Alexandre-st" width="200">|<img src="https://github.com/jenn-aris.png" alt="JenniferARISTIZABAL" width="200">|
-| **Jimmy Dupré** | **Stellavilar** | **Alexandre-st** | **JenniferARISTIZABAL** |
+| [**Jimmy Dupré**](https://github.com/jimmydupre) | [**Stella Vilar**](https://github.com/Stellavilar) | [**Alexandre-st**](https://github.com/Alexandre-st) | [**Jenn Aris**](https://github.com/jenn-aris) |
 | Product owner & Lead Back | Lead Front | Scrum master| Git master |
