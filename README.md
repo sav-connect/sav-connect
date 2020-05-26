@@ -25,7 +25,6 @@ SECRET_SESSION=RANDOM_STRING
 - /tmp
 - /BACK/uploads
 
-Change rule writing on CHMOD -R 755 (Recursive mdoe)
 
 ## COMMANDE
 

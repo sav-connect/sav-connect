@@ -121,7 +121,6 @@ const ArticleList = () => {
                   <div className="number">REFERENCE</div>
                   <div className="designation">Désignation</div>
                   <div className="price">Tarif</div>
-                  <div className="mesure">Unité</div>
                   <div className="options">Options</div>
               </div>
               <InfiniteScroll
@@ -147,7 +146,6 @@ const ArticleList = () => {
                         {product.name}
                       </div>
                       <div className="price"><p>{product.price}</p></div>
-                      <div className="mesure">{product.mesure}</div>
                       <div className="options">
                         <Link to={`/editarticleform/${product.id}`}>
                           <i className="edit icon"></i>
