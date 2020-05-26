@@ -150,10 +150,6 @@ class DevisForm extends Component {
     this.setState(state);
   }
 
-
-
-
-
   handleSubmit = (event) => {
           const dataform = new FormData();
           dataform.append('devis_is_accepted', this.state.devis.devis_is_accepted);
@@ -183,8 +179,6 @@ class DevisForm extends Component {
         })
         .catch ((error) => {console.trace(error); })      
   }
-
-
 
 
   handleClose = () => {

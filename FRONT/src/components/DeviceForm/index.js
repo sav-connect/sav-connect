@@ -1,15 +1,7 @@
  // == Import npm
- import React, {useState, useEffect, Component} from 'react';
- import { useDispatch } from 'react-redux';
- import { useForm } from 'react-hook-form';
- import { useParams } from 'react-router-dom';
+ import React, {Component} from 'react';
  import axios from 'axios';
- //Import action from store:
- import { syncText } from 'src/store/actions';
- //Semantic-ui import
-
  import { Form, Button, Checkbox } from 'semantic-ui-react';
-
  import Datetime from 'react-datetime';
 
 import './Datetime.scss';
@@ -24,7 +16,7 @@ class DeviceForm extends Component {
       device_brand: '',
       id: null,
       interval_repair: null,
-      order_number: null,
+      order_number: '',
       panne: ''
     },
     config_pannes : []
@@ -77,8 +69,7 @@ class DeviceForm extends Component {
     state.device.interval_repair = dateMoment.format();
     this.setState(state);
   }
-
-
+  'une erreur'
   handleSubmit = event => {
     const dataform = new FormData();
     dataform.append('order_number', this.state.device.order_number);

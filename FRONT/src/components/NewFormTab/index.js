@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Header, Button, Form } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
 import { useParams } from 'react-router-dom';
 import { useDispatch} from 'react-redux';
 import { useHistory } from 'react-router';
@@ -18,9 +18,7 @@ import DevisForm from 'src/components/DevisForm';
 import OptionsForm from 'src/components/OptionsForm';
 import ClientTab from 'src/components/ClientTab';
 import GalleryForm from 'src/components/GalleryForm';
-import Activity from '../Activity';
 
-//Import store actions
 import { seeArchives } from 'src/store/actions';
 
 const NewFormTab = () => {
@@ -106,7 +104,7 @@ const NewFormTab = () => {
                     <DeviceForm order_number={order_number} alert={alert} />
                 </Tab>
                 <Tab eventKey="intervention" title="Intervention">
-                    <InterventionForm />
+                    <InterventionForm order_number={order_number} alert={alert} />
                 </Tab>
                 <Tab eventKey="galerie" title="Galerie" >
                     <GalleryForm />
