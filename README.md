@@ -1,5 +1,6 @@
+<center>
 <img src="./FRONT/src/assets/img/savLogo.png" alt="savConnect Logo" width="300">
-
+</center>
 
 
 ## INSTALLATION
@@ -46,6 +47,6 @@ npm start
 ## CONTRIBUTER
 | | | | |
 |---|---|---|---|
-|<img src="https://github.com/jimmydupre.png" alt="jimmy dupre" width="200">|<img src="https://github.com/Stellavilar.png" alt="Stellavillar" width="200">|<img src="https://github.com/Alexandre-st.png" alt="Alexandre-st" width="200">|<img src="https://github.com/JenniferARISTIZABAL.png" alt="JenniferARISTIZABAL" width="200">|
+|<img src="https://github.com/jimmydupre.png" alt="jimmy dupre" width="200">|<img src="https://github.com/Stellavilar.png" alt="Stellavillar" width="200">|<img src="https://github.com/Alexandre-st.png" alt="Alexandre-st" width="200">|<img src="https://github.com/jenn-aris.png" alt="JenniferARISTIZABAL" width="200">|
 | **Jimmy Dupré** | **Stellavilar** | **Alexandre-st** | **JenniferARISTIZABAL** |
 | Product owner & Lead Back | Lead Front | Scrum master| Git master |
