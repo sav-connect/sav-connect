@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import { Form } from 'semantic-ui-react';
 import axios from 'axios';
 
-import logo from 'src/assets/img/SAVconnect_logo_white.png';
 
 // Import store actions
 import { enterMainPage } from 'src/store/actions';
@@ -128,7 +127,7 @@ const SearchBar = (props) => {
     <div className="header-area">
       <img
         className="header-area-image"
-        src={logo}
+        src="http://localhost:3000/app/logo.png"
         alt="logo"
         onClick={(evt) => {
           dispatch(enterMainPage(history));

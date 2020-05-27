@@ -3,7 +3,6 @@ import { Form, Header, Button, Input, Label, Modal } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
-import logo from 'src/assets/img/SAVconnect_logo_white.png';
 import './style.scss';
 
 //Import store actions
@@ -37,7 +36,7 @@ const Login = () => {
 
     <div className="loginMain">
       <div className="loginSpace">
-        <img src={logo} alt={"logo"} className="profil-logo"/>
+        <img src="http://localhost:3000/app/logo.png" alt={"logo"} className="profil-logo"/>
           <Header 
             as='h2'
             className="profil-header"
