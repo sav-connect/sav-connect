@@ -4,9 +4,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
 import logo from 'src/assets/img/SAVconnect_logo_white.png';
+import './style.scss';
 
 //Import store actions
 import { syncPassword, syncMail, login} from 'src/store/actions';
+
+
+const ErrorMessage = () => {
+  if(sessionStorage.errorLogin) {
+    const message = sessionStorage.errorLogin;
+    sessionStorage.removeItem('errorLogin')
+    return (
+      <p className="error-login" style={{color: 'white', backgroundColor:'red', padding: '5px'}}>
+        {message}
+      </p>
+    )
+  }else{
+    return null;
+  }
+}
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -14,6 +30,8 @@ const Login = () => {
   const password = useSelector((state) => state.password);
   // const error = sessionStorage.error;
   const history = useHistory();
+
+
 
   return (
 
@@ -53,6 +71,7 @@ const Login = () => {
                 />
                 {/* <small >{error}</small> */}
               </Form.Field>
+              <ErrorMessage />
               <Button className="profil-button">Connexion</Button>
             </Form>
       </div>
