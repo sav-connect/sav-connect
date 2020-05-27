@@ -30,18 +30,34 @@ const ActionList= () => {
      return actionList.map((action) => {
        let isBlockedClass = 'action-box ';
        action['is-blocked'] == 1 ? isBlockedClass+='blocked' : isBlockedClass+='';
-          return (
-            <div 
-            key={action.id}
-            className={isBlockedClass} 
-            >
-              <Segment>{action.name}
-              <Link to={`/editactionform/${action.id}`} className="btn-edit-action">
-                <i className="edit icon"></i>
-              </Link>
-              </Segment>
-            </div>
-        )
+       if(action['is-blocked'] == 1){
+         return (
+              <div 
+              key={action.id}
+              className={isBlockedClass} 
+              >
+                <Segment>{action.name}
+                {/* <Link to={`/editactionform/${action.id}`} className="btn-edit-action">
+                  <i className="edit icon"></i>
+                </Link> */}
+                </Segment>
+              </div>
+          )
+       } else{
+        return (
+          <div 
+          key={action.id}
+          className={isBlockedClass} 
+          >
+            <Segment>{action.name}
+            <Link to={`/editactionform/${action.id}`} className="btn-edit-action">
+              <i className="edit icon"></i>
+            </Link>
+            </Segment>
+          </div>
+      )
+       }  
+       
      })
    };
     return (
