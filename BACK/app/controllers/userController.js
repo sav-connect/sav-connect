@@ -198,18 +198,19 @@ module.exports = userController = {
                 return res.send({"error": "Pas de résultat trouvé pour éditer l'utilisateur."});
             }
 
-            let { firstname, lastname, mail, password, role_id } = req.body;
+            let { firstname, lastname, mail, password, newPassword_two } = req.body;
+            console.log(req.body);
+
 
             if(!firstname){ firstname =userOld.firstname }
             if(!lastname){ lastname =userOld.lastname }
             if(!mail){ mail =userOld.mail }
-            if(!role_id){ role_id =userOld.role_id }
             
             // Validate Password with utils.js
-            if(password){ 
-                if(!validatePassword.validate(password)){
-                    return res.send({"error": "Votre mot de passe doit contenir au minum 8 caractères avec une majuscules, une minuscule, un chiffre et un caractère spécial."});
-                }
+            if(!password && !newPassword_two){ 
+                password = userOld.password;
+            }else{
+                password = newPassword_two;
             }
 
             // Validate email with Utils.js
@@ -218,13 +219,13 @@ module.exports = userController = {
             }
 
 
-            // New instance for the new user
+            // // New instance for the new user
             const user = new User({
                 id,
                 firstname,
                 lastname,
                 mail,
-                role_id
+                password,
             });
             if(password){
                 // HASH password
@@ -232,10 +233,11 @@ module.exports = userController = {
                 user.password = passwordHashed;
             }
 
-            // Edit this user
-            const result = await user.edit();
+            
+            // // Edit this user
+            const result = await user.editProfil();
 
-            return res.send(result);
+            return res.send(true);
 
         } catch (error) {
             console.log(error);
