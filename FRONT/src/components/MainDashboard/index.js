@@ -34,7 +34,6 @@ const MainDashboard = () => {
 
   page = parseInt(page, 10);
 
-
   // Get data from database with axios request
   const savData = () => {
     axios.get(

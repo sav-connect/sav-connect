@@ -7,7 +7,8 @@ import axios from 'axios';
 import { Header, Form, Button } from 'semantic-ui-react';
 
 //Import store actions
-import { seeProducts } from 'src/store/actions';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class ArticleForm extends Component {
   state = { 
@@ -53,11 +54,14 @@ class ArticleForm extends Component {
         if(response.data){
           if(response.data.error){
             this.setState({error: response.data.error});
+            toast.error(response.data.error);
           }else{
+            toast.success('Article créé avec succes !')
             this.setState({redirect: true});
           }
         }else{
           this.setState({error: response.data.error});
+          toast.error(response.data.error);
         }
       })
       .catch ((error) => {console.trace(error); })
@@ -78,6 +82,7 @@ class ArticleForm extends Component {
     }
     return ( 
       <div className="main">
+        <ToastContainer />
       <Header as='h2'>
          Nouvel article
        </Header>
