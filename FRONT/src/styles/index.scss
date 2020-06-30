@@ -82,7 +82,6 @@ a:hover {
     width: 90%;
     text-align: center;
     border: none;
-    border: none;
     background: none !important;
     background-color: rgba(255,255,255,0.3) !important;
     border-bottom: 3px solid $orange !important;
@@ -317,7 +316,7 @@ a:hover {
     .field textarea {
       border: none;
       border-radius: 0;
-      border-radius: 5px;
+      // border-radius: 5px;
       border-bottom: 1px solid $blue;
       background-color: $grey;
     }
@@ -506,6 +505,14 @@ a:hover {
 .activity {
   display: none;
 }
+
+.Toastify__toast-container--top-right {
+  top: 5em !important;
+}
+
+
+
+// MEDIA DESKTOP
 
 @media screen and (min-width : 768px) {
 
@@ -822,5 +829,7 @@ a:hover {
   .loginMain .loginSpace .ui.form .field.field input{
     width: 400px;
   }
+
+
 
 }

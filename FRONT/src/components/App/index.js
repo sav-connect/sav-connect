@@ -36,6 +36,9 @@ import EditArticleForm from 'src/components/EditArticleForm';
 import EditTagForm from 'src/components/EditTagForm';
 import EditActionForm from 'src/components/EditActionForm';
 
+import { withAlert } from 'react-alert';
+
+
 
 // / == Import CSS file
 import 'src/styles/index.scss';
@@ -43,11 +46,10 @@ import 'src/styles/index.scss';
 // == App Component
 console.log('isConnected du session: ', sessionStorage.isConnected);
 console.log('Token du session: ', sessionStorage.token);
-class App extends Component {
 
-  // state = {
-  //   type : 'general'
-  // }
+
+
+class App extends Component {
 
   // changeState = (type) => {
   //   if(type){
@@ -56,12 +58,19 @@ class App extends Component {
   //     this.setState(state);
   //   }
   // }
+  state = {
+    alert: this.props.alert
+  }
+
 
   constructor(props) {
     super(props);
   }
 
   render () {
+
+    const alert = this.state.alert;
+
     return (
   <div className="app">
     <Switch>
@@ -209,14 +218,19 @@ class App extends Component {
           <Activity type="general" />
         </div>
       </Route>
-      <Route exact path="/articleform">
-        <SearchBar />
-        <ClassicMenu />
-        <div className="content">
-          <ArticleForm />
-          <Activity type="general" />
-        </div>
-      </Route>
+
+      <Route exact path="/articleform" render={(props) => {   
+        return (
+          <>
+            <SearchBar />
+            <ClassicMenu />
+            <div className="content">
+              <ArticleForm />
+              <Activity type="general" />
+            </div>
+          </>
+        );
+      }} />
 {/* ======================= PROFIL ======================== */}
       <Route exact path="/formtab" render={(props) => {
         return (
@@ -373,18 +387,7 @@ class App extends Component {
         );
       }} />
 
-      <Route exact path="/articleform" render={(props) => {
-        return (
-          <>
-            <SearchBar />
-            <ClassicMenu />
-            <div className="content">
-              <ArticleForm />
-              <Activity type="general" />
-            </div>
-          </>
-        );
-      }} />
+     
 
 
       <Route exact path="/profil">
