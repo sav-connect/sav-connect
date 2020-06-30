@@ -23,7 +23,7 @@ module.exports = customerController = {
             }
         } catch (error) {
             console.log(error);
-            res.send(error);
+            return res.send(error);
         }
     },
 
@@ -92,7 +92,7 @@ module.exports = customerController = {
             return res.status(403).send({"error": "Vous n'avez pas complété tous les champs."});
         } catch (error) {
             console.log(error);
-            res.status(403).send(error);
+            return res.status(403).send(error);
         }
     },
 

@@ -187,14 +187,7 @@ class ClientsForm extends Component {
                  onChange={this.handleChange}
                 />
               </Form.Field>
-              <Form.Field>
-                    <label>Nom de l'appareil à réparer *</label>
-                    <input 
-                    name="device_name"
-                    onChange={this.handleChange}
-                    />
-                    {/* <ErrorMessage errors={ errors } name="device_name" /> */}
-                </Form.Field>
+              
                 <Form.Field>
                 <label>Notes</label>
                 <TextArea 
@@ -204,6 +197,15 @@ class ClientsForm extends Component {
                 onChange={this.handleChange}
                 />
               </Form.Field>
+              <h4 className="ui header second-client-form-header">Appareil</h4>
+              <Form.Field>
+                    <label>Nom de l'appareil à réparer *</label>
+                    <input 
+                    name="device_name"
+                    onChange={this.handleChange}
+                    />
+                    {/* <ErrorMessage errors={ errors } name="device_name" /> */}
+                </Form.Field>
               <div className="button-form">
                 {/* <Link to={`/newformtab/`}> */}
                 <Button 
