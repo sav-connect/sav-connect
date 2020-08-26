@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cd BACK && ./node_modules/mocha/bin/mocha",
     "install_back": "cd BACK && npm install && cd ..",
     "install_front": "cd FRONT && yarn",
     "install": "npm run install_back && npm run install_front",
@@ -14,7 +14,7 @@
     "watching": "npm run start_back & npm run start_front",
     "dev": "npm run install && npm run watching",
     "build" : "cd FRONT && npm run build && cd .. ",
-    "start": ""
+    "start": "node BACK/server.js &"
   },
   "repository": {
     "type": "git",
