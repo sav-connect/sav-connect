@@ -6,3 +6,5 @@ BACK/uploads/
 BACK/.env
 .env
 BACK/migrations/sqitch.conf
+public/
+static/
