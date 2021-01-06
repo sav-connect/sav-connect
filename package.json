@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/O-clock-Bifrost/project-gestion-sav#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "react": "^16.13.1",
     "react-color": "^2.18.1",
