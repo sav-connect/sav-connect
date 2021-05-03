@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const session = require('express-session');
 const fileUpload = require('express-fileupload');
 
@@ -28,10 +27,10 @@ app.use(session({
 const PORT = process.env.PORT || 3000;
 app.locals.BASEDIR = __dirname;
 
-app.use(bodyParser.urlencoded({
+app.use(express.urlencoded({
   extended: true
 }));
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.use(fileUpload({
   useTempFiles: true,
