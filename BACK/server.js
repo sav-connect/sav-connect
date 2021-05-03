@@ -27,10 +27,10 @@ app.use(session({
 const PORT = process.env.PORT || 3000;
 app.locals.BASEDIR = __dirname;
 
+app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
-app.use(express.json());
 
 app.use(fileUpload({
   useTempFiles: true,
