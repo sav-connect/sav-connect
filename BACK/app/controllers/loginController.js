@@ -14,23 +14,23 @@ module.exports = loginController = {
         try {
             const { mail , password } = req.body;
             // If no mail and passord, send an error.
-            if(!mail || !password){
+            if (!mail || !password) {
                 return res.send({"error": "Vous n'avez pas complété tous les champs."});
             }
 
             // Find result with mail and login
             const result = await User.login(mail, password);
-            if(!result){
-                return res.send({"error": "Une erreur s'est produite."});
+            if (!result) {
+                return res.send({"error": "Vos identifiants sont incorrects"});
             }
             req.session.token = result.token;
             const {token, isAdmin } = result;
             const resultSend = {
                 token: token
             };
-            if(isAdmin === 2){
+            if (isAdmin === 2) {
                 resultSend.isAdmin = true
-            }else{
+            } else {
                 resultSend.isAdmin = false
             }
             return res.send(resultSend);
