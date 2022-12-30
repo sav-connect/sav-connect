@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@hapi/wreck": "^17.0.0",
-    "mocha": "^7.1.2",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.3"
   }
 }
